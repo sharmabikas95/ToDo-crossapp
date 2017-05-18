@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Sign In
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="login-email">
+  <ion-row>
+    <div padding>
+    </div>
+  </ion-row>
+
+  <form (ngSubmit)="login()" #loginForm="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-input type="text" placeholder="E-mail" [(ngModel)]="form.email" name="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" placeholder="Password" [(ngModel)]="form.password" name="password"></ion-input>
+      </ion-item>
+    </ion-list>
+
+     <button ion-button round outline [disabled]="!loginForm.form.valid" style="width:45%">Sing In</button>
+     <button ion-button round outline (click)="openSignUpPage()" style="width:50%">Sing Up</button>
+  </form>
+</ion-content>

@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{user.name}}</ion-title>
+     <ion-buttons end>
+      <button ion-button icon-right color="royal" (click)="logout()" style="color: #fff;">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content padding>
+<ion-grid>
+   <ion-row>
+    <ion-col col-sm-10 col-md-10 col-lg-10 col-xl-10>
+     <ion-item>
+        <ion-input type="text" placeholder="Enter Task" [(ngModel)]="taskName" name="name"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col col-sm-2 col-md-2 col-lg-2 col-xl-2>
+     <button ion-button color="light" block (click)="addTask()">Add</button>
+    </ion-col>
+    </ion-row>
+
+
+    <ion-list>
+      <ion-item *ngFor="let d of taskList">
+       <button ion-button clear item-left *ngIf="d.mark"><ion-icon name="checkmark" style="font-size:22px;color:#ddd"></ion-icon></button>
+       <button ion-button clear item-left *ngIf="!d.mark"><ion-icon name=""></ion-icon></button>
+
+        <h2 [ngClass]="{'strike': d.mark}" class="pointer" (click)="updateTask(d)">{{d.taskName}}</h2>
+
+        <button ion-button clear item-right (click)="deleteTask(d)"><ion-icon name="close" style="font-size:22px;color:red"></ion-icon></button>
+      </ion-item>
+    </ion-list>
+</ion-grid>
+</ion-content>
